@@ -24,6 +24,9 @@ namespace telephone_book
         const string DELETE_MESSAGE = "Are you sure want to delete this?";
         const string FILE_FORMAT = "{0}//data.dat";
         const string MESSAGE_WINDOW_NAME = "Message";
+        const string FILE_DIALOG_TITLE = "Import Image";
+        const string FILE_DIALOG_FILTER = "JPG|*.jpg|JPEG|*.jpeg|PNG|*.png";
+
 
         static AppData db;
         protected static AppData App
@@ -52,7 +55,14 @@ namespace telephone_book
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Title = FILE_DIALOG_TITLE;
+            fileDialog.Filter = FILE_DIALOG_FILTER;
+            DialogResult dialogResult = fileDialog.ShowDialog();
+            if (dialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                pictureBox.Image = Image.FromFile(fileDialog.FileName);
+            }
         }
 
         private void btnNew_Click(object sender, EventArgs e)

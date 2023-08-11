@@ -399,7 +399,7 @@ namespace telephone_book {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TelephoneBookRow AddTelephoneBookRow(string Name, string Phone, string Email, string Photo) {
+            public TelephoneBookRow AddTelephoneBookRow(string Name, string Phone, string Email, byte[] Photo) {
                 TelephoneBookRow rowTelephoneBookRow = ((TelephoneBookRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
@@ -452,7 +452,7 @@ namespace telephone_book {
                 base.Columns.Add(this.columnPhone);
                 this.columnEmail = new global::System.Data.DataColumn("Email", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmail);
-                this.columnPhoto = new global::System.Data.DataColumn("Photo", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnPhoto = new global::System.Data.DataColumn("Photo", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPhoto);
                 this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
@@ -653,10 +653,10 @@ namespace telephone_book {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Photo {
+            public byte[] Photo {
                 get {
                     try {
-                        return ((string)(this[this.tableTelephoneBook.PhotoColumn]));
+                        return ((byte[])(this[this.tableTelephoneBook.PhotoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Photo\' in table \'TelephoneBook\' is DBNull.", e);
