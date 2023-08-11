@@ -33,6 +33,14 @@ These instructions will help you set up and run the Telephone Book Application o
 +    To create a new contact, click the "New" button, enter the details, and click "Save".
 +    To delete a contact, select it from the list and press the "Delete" key.
 
+## Screenshots
+
+![Screenshot 2023-08-11 163455](https://github.com/MohammadMahdi-Abdolhosseini/Telephone-Book/assets/124064917/286c7361-8e60-41f2-bde7-8c21ed9e070a)
+
+![Screenshot 2023-08-11 164608](https://github.com/MohammadMahdi-Abdolhosseini/Telephone-Book/assets/124064917/2008b79d-95d4-4069-989d-e90cd27fcd85)
+
+![Screenshot 2023-08-11 164631](https://github.com/MohammadMahdi-Abdolhosseini/Telephone-Book/assets/124064917/42701462-9291-4ff6-b919-8c3b38277ab1)
+
 ## License
 
 This project is licensed under the MIT License.
