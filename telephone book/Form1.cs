@@ -22,6 +22,8 @@ namespace telephone_book
         const string DISCARD_CHANGES_ERROR = "Discard your changes?";
         const string EMPTY_FIELD_ERROR = "Name and Phone cannot be empty.";
         const string DELETE_MESSAGE = "Are you sure want to delete this?";
+        const string FILE_FORMAT = "{0}//data.dat";
+        const string MESSAGE_WINDOW_NAME = "Message";
 
         static AppData db;
         protected static AppData App
@@ -38,7 +40,7 @@ namespace telephone_book
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string fileName = string.Format("{0}//data.dat", Application.StartupPath);
+            string fileName = string.Format(FILE_FORMAT, Application.StartupPath);
             if (File.Exists(fileName))
             {
                 App.TelephoneBook.ReadXml(fileName);
@@ -75,7 +77,7 @@ namespace telephone_book
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(DISCARD_CHANGES_ERROR, "Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            if (MessageBox.Show(DISCARD_CHANGES_ERROR, MESSAGE_WINDOW_NAME, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 App.TelephoneBook.RejectChanges();
                 telephoneBookBindingSource.ResetBindings(false);
@@ -107,7 +109,8 @@ namespace telephone_book
             if (e.KeyCode == Keys.Delete)
             {
                 if (dataGridView.RowCount == 0) return;
-                if (MessageBox.Show(DELETE_MESSAGE, "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                string contactInfo = "\nName: " + txtName.Text + "\nPhone: " + txtPhone.Text + "\nEmail: " + txtEmail.Text;
+                if (MessageBox.Show(DELETE_MESSAGE + contactInfo, MESSAGE_WINDOW_NAME, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     telephoneBookBindingSource.RemoveCurrent();
                     SaveChanges();
@@ -135,7 +138,7 @@ namespace telephone_book
         {
             if (ex.Message == DISCARD_CHANGES_ERROR)
             {
-                if (MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                if (MessageBox.Show(ex.Message, MESSAGE_WINDOW_NAME, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     App.TelephoneBook.RejectChanges();
                     AddEmptyContact();
@@ -143,11 +146,11 @@ namespace telephone_book
             }
             else if (ex.Message == EMPTY_FIELD_ERROR)
             {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, MESSAGE_WINDOW_NAME, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, MESSAGE_WINDOW_NAME, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 App.TelephoneBook.RejectChanges();
             }
         }
@@ -209,7 +212,7 @@ namespace telephone_book
         private void SaveChanges()
         {
             App.TelephoneBook.AcceptChanges();
-            App.TelephoneBook.WriteXml(string.Format("{0}//data.dat", Application.StartupPath));
+            App.TelephoneBook.WriteXml(string.Format(FILE_FORMAT, Application.StartupPath));
         }
     }
 }
