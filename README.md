@@ -18,20 +18,20 @@ These instructions will help you set up and run the Telephone Book Application o
 
 ### Prerequisites
 
-.    Microsoft Visual Studio with C# support.
++    Microsoft Visual Studio with C# support.
 
 ### Installation
 
-.    Clone this repository to your local machine.
-.    Open the solution file (TelephoneBook.sln) using Visual Studio.
++    Clone this repository to your local machine.
++    Open the solution file (TelephoneBook.sln) using Visual Studio.
 
 ### Usage
 
-.    Build and run the application using Visual Studio.
-.    The main interface displays the list of contacts from the telephone book file.
-.    To edit a contact, click the "Edit" button, make the necessary changes, and click "Save".
-.    To create a new contact, click the "New" button, enter the details, and click "Save".
-.    To delete a contact, select it from the list and press the "Delete" key.
++    Build and run the application using Visual Studio.
++    The main interface displays the list of contacts from the telephone book file.
++    To edit a contact, click the "Edit" button, make the necessary changes, and click "Save".
++    To create a new contact, click the "New" button, enter the details, and click "Save".
++    To delete a contact, select it from the list and press the "Delete" key.
 
 ## License
 
