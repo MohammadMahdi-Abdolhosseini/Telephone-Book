@@ -35,8 +35,4 @@ These instructions will help you set up and run the Telephone Book Application o
 
 ## License
 
-This project is licensed under the MIT License.
-
-## Acknowledgments
-
-This application was created as a learning project.
+This project is licensed under the MIT License. Everything is free to use, also commercially (public domain).
